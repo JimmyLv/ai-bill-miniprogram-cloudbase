@@ -1,0 +1,87 @@
+<view class="container">
+  <!-- 头部统计卡片 -->
+  <view class="header">
+    <view class="summary-cards">
+      <view class="summary-card">
+        <text class="card-label">本月支出</text>
+        <text class="card-value">¥{{monthlyExpense}}</text>
+        <text class="card-change">{{monthlyChange}}</text>
+      </view>
+      <view class="summary-card">
+        <text class="card-label">日均消费</text>
+        <text class="card-value">¥{{dailyAverage}}</text>
+        <text class="card-change">共{{totalDays}}天</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 时间筛选 -->
+  <view class="time-filter">
+    <view 
+      class="time-tab {{activeTimeFilter === item.key ? 'active' : ''}}"
+      wx:for="{{timeFilters}}" 
+      wx:key="key"
+      bindtap="switchTimeFilter"
+      data-filter="{{item.key}}"
+    >
+      {{item.name}}
+    </view>
+  </view>
+
+  <!-- 类别统计 -->
+  <view class="category-stats">
+    <view class="section-title">
+      <text>消费分类</text>
+    </view>
+    <view class="category-list">
+      <view class="category-stat-item" wx:for="{{categoryStats}}" wx:key="category">
+        <view class="category-info">
+          <image class="category-icon" src="/images/category-{{item.category}}.png"></image>
+          <view class="category-detail">
+            <text class="category-name">{{item.category}}</text>
+            <text class="category-count">{{item.count}}笔</text>
+          </view>
+        </view>
+        <view class="category-amount">
+          <text class="amount-value">¥{{item.amount}}</text>
+          <text class="amount-percent">{{item.percent}}%</text>
+        </view>
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{item.percent}}%"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费趋势 -->
+  <view class="trend-section">
+    <view class="section-title">
+      <text>消费趋势</text>
+    </view>
+    <view class="trend-chart">
+      <view class="chart-placeholder">
+        <text>📊 消费趋势图</text>
+        <text class="chart-desc">显示最近{{activeTimeFilter === 'week' ? '7天' : '30天'}}的消费变化</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 消费记录摘要 -->
+  <view class="records-summary">
+    <view class="section-title">
+      <text>最大支出</text>
+    </view>
+    <view class="top-records">
+      <view class="top-record-item" wx:for="{{topRecords}}" wx:key="_id">
+        <view class="record-left">
+          <image class="record-icon" src="/images/category-{{item.category}}.png"></image>
+          <view class="record-detail">
+            <text class="record-desc">{{item.description}}</text>
+            <text class="record-date">{{item.dateText}}</text>
+          </view>
+        </view>
+        <text class="record-amount">¥{{item.amount}}</text>
+      </view>
+    </view>
+  </view>
+</view> 

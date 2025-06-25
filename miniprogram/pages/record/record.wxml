@@ -1,0 +1,126 @@
+<view class="container">
+  <!-- 顶部标题 -->
+  <view class="header">
+    <text class="title">记一笔</text>
+    <text class="subtitle">记录每一笔花销</text>
+  </view>
+
+  <!-- 金额输入 -->
+  <view class="amount-section">
+    <view class="amount-display">
+      <text class="currency">¥</text>
+      <input 
+        class="amount-input" 
+        type="digit" 
+        placeholder="0.00"
+        value="{{amount}}"
+        bindinput="onAmountInput"
+        focus="{{amountFocus}}"
+      />
+    </view>
+    <text class="amount-hint">输入金额</text>
+  </view>
+
+  <!-- 类别选择 -->
+  <view class="category-section">
+    <view class="section-title">
+      <text>选择类别</text>
+    </view>
+    <view class="category-grid">
+      <view 
+        class="category-item {{item.key === selectedCategory ? 'selected' : ''}}"
+        wx:for="{{categories}}" 
+        wx:key="key"
+        bindtap="selectCategory"
+        data-category="{{item.key}}"
+      >
+        <image class="category-icon" src="{{item.icon}}"></image>
+        <text class="category-name">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 描述输入 -->
+  <view class="description-section">
+    <view class="section-title">
+      <text>添加备注</text>
+    </view>
+    <textarea 
+      class="description-input"
+      placeholder="简单描述一下这笔支出..."
+      value="{{description}}"
+      bindinput="onDescriptionInput"
+      maxlength="100"
+    ></textarea>
+  </view>
+
+  <!-- 日期选择 -->
+  <view class="date-section">
+    <view class="section-title">
+      <text>选择日期</text>
+    </view>
+    <picker mode="date" value="{{date}}" bindchange="onDateChange">
+      <view class="date-picker">
+        <text>{{dateText}}</text>
+        <image class="arrow-icon" src="/images/arrow-right.png"></image>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 语音输入按钮 -->
+  <view class="voice-section">
+    <button class="voice-btn" bindtap="startVoiceInput">
+      <image class="voice-icon" src="/images/mic-white.png"></image>
+      <text>语音输入</text>
+    </button>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="action-section">
+    <button 
+      class="save-btn {{canSave ? 'active' : 'disabled'}}"
+      bindtap="saveRecord"
+      disabled="{{!canSave}}"
+    >
+      保存记录
+    </button>
+  </view>
+</view>
+
+<!-- 语音输入模态框 -->
+<view class="voice-modal" wx:if="{{showVoiceModal}}">
+  <view class="modal-mask" bindtap="closeVoiceModal"></view>
+  <view class="modal-content">
+    <view class="modal-header">
+      <text class="modal-title">{{voiceStatus.title}}</text>
+      <text class="modal-subtitle">{{voiceStatus.subtitle}}</text>
+    </view>
+    
+    <view class="voice-animation">
+      <view class="wave-container" wx:if="{{isRecording}}">
+        <view class="wave wave1"></view>
+        <view class="wave wave2"></view>
+        <view class="wave wave3"></view>
+      </view>
+      <image class="mic-large" src="/images/mic-large.png"></image>
+    </view>
+
+    <view class="voice-result" wx:if="{{voiceText}}">
+      <text class="result-label">识别结果：</text>
+      <text class="result-text">{{voiceText}}</text>
+    </view>
+
+    <view class="modal-actions">
+      <button class="action-btn cancel" bindtap="closeVoiceModal">
+        取消
+      </button>
+      <button 
+        class="action-btn confirm" 
+        bindtap="applyVoiceResult"
+        wx:if="{{voiceText}}"
+      >
+        应用结果
+      </button>
+    </view>
+  </view>
+</view> 

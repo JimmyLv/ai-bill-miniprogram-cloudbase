@@ -1,0 +1,359 @@
+/* 页面容器 */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding-bottom: 100rpx;
+}
+
+/* 头部 */
+.header {
+  padding: 60rpx 40rpx 40rpx;
+  text-align: center;
+  color: white;
+}
+
+.title {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+}
+
+.subtitle {
+  display: block;
+  font-size: 28rpx;
+  opacity: 0.8;
+}
+
+/* 金额输入区域 */
+.amount-section {
+  background: white;
+  margin: 0 40rpx 30rpx;
+  border-radius: 24rpx;
+  padding: 60rpx 40rpx;
+  text-align: center;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.1);
+}
+
+.amount-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.currency {
+  font-size: 48rpx;
+  color: #333;
+  margin-right: 16rpx;
+}
+
+.amount-input {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  border: none;
+  outline: none;
+  min-width: 200rpx;
+}
+
+.amount-hint {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 类别选择 */
+.category-section, .description-section, .date-section {
+  background: white;
+  margin: 0 40rpx 30rpx;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30rpx;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30rpx 20rpx;
+  border-radius: 20rpx;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.category-item.selected {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.category-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 16rpx;
+}
+
+.category-name {
+  font-size: 24rpx;
+  font-weight: 500;
+}
+
+/* 描述输入 */
+.description-input {
+  width: 100%;
+  min-height: 120rpx;
+  padding: 20rpx;
+  border: 2rpx solid #f0f0f0;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  line-height: 1.5;
+  background: #f8f9fa;
+}
+
+/* 日期选择 */
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 20rpx;
+  background: #f8f9fa;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.arrow-icon {
+  width: 32rpx;
+  height: 32rpx;
+  opacity: 0.5;
+}
+
+/* 语音输入按钮 */
+.voice-section {
+  margin: 0 40rpx 30rpx;
+}
+
+.voice-btn {
+  width: 100%;
+  height: 100rpx;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border: none;
+  border-radius: 50rpx;
+  color: white;
+  font-size: 28rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 32rpx rgba(255, 107, 107, 0.3);
+}
+
+.voice-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 16rpx;
+}
+
+/* 保存按钮 */
+.action-section {
+  margin: 0 40rpx;
+}
+
+.save-btn {
+  width: 100%;
+  height: 100rpx;
+  border: none;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.save-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 8rpx 32rpx rgba(102, 126, 234, 0.4);
+}
+
+.save-btn.disabled {
+  background: #f1f2f6;
+  color: #c8c9cc;
+}
+
+/* 语音模态框 */
+.voice-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 32rpx;
+  padding: 60rpx;
+  margin: 0 60rpx;
+  max-width: 600rpx;
+  width: 100%;
+  z-index: 10;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.modal-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.modal-subtitle {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 语音动画 */
+.voice-animation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200rpx;
+  margin-bottom: 40rpx;
+}
+
+.wave-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 4rpx solid #667eea;
+  border-radius: 50%;
+  opacity: 0;
+  animation: wave-animation 2s infinite;
+}
+
+.wave1 {
+  width: 120rpx;
+  height: 120rpx;
+  animation-delay: 0s;
+}
+
+.wave2 {
+  width: 180rpx;
+  height: 180rpx;
+  animation-delay: 0.5s;
+}
+
+.wave3 {
+  width: 240rpx;
+  height: 240rpx;
+  animation-delay: 1s;
+}
+
+@keyframes wave-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.mic-large {
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 10;
+}
+
+/* 语音识别结果 */
+.voice-result {
+  background: #f8f9fa;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 40rpx;
+  text-align: center;
+}
+
+.result-label {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 16rpx;
+}
+
+.result-text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* 模态框按钮 */
+.modal-actions {
+  display: flex;
+  gap: 30rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 88rpx;
+  border: none;
+  border-radius: 44rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.action-btn.cancel {
+  background: #f1f2f6;
+  color: #666;
+}
+
+.action-btn.confirm {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+} 

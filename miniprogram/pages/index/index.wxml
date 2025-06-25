@@ -1,0 +1,96 @@
+<view class="container">
+  <!-- 头部信息 -->
+  <view class="header">
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/images/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="greeting">
+        <text class="welcome">Hi, {{userInfo.nickName || '用户'}}</text>
+        <text class="subtitle">智能记账，轻松管理</text>
+      </view>
+    </view>
+    <view class="balance-card">
+      <text class="balance-label">本月支出</text>
+      <text class="balance-amount">¥{{monthlyExpense}}</text>
+    </view>
+  </view>
+
+  <!-- 快速记账 -->
+  <view class="quick-record">
+    <view class="section-title">
+      <text>快速记账</text>
+    </view>
+    <view class="quick-buttons">
+      <button class="quick-btn voice-btn" bindtap="startVoiceRecord">
+        <image class="btn-icon" src="/images/mic.png"></image>
+        <text>语音记账</text>
+      </button>
+      <button class="quick-btn manual-btn" bindtap="goToRecord">
+        <image class="btn-icon" src="/images/edit.png"></image>
+        <text>手动记录</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 最近记录 -->
+  <view class="recent-records">
+    <view class="section-title">
+      <text>最近记录</text>
+      <text class="see-all" bindtap="goToList">查看全部</text>
+    </view>
+    <view class="records-list">
+      <view class="record-item" wx:for="{{recentExpenses}}" wx:key="_id">
+        <view class="record-left">
+          <image class="category-icon" src="/images/category-{{item.category}}.png"></image>
+          <view class="record-info">
+            <text class="record-desc">{{item.description}}</text>
+            <text class="record-time">{{item.timeText}}</text>
+          </view>
+        </view>
+        <text class="record-amount">-¥{{item.amount}}</text>
+      </view>
+      <view class="empty-records" wx:if="{{recentExpenses.length === 0}}">
+        <image class="empty-icon" src="/images/empty.png"></image>
+        <text>暂无记录，快来试试语音记账吧～</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 统计卡片 -->
+  <view class="stats-cards">
+    <view class="section-title">
+      <text>消费统计</text>
+    </view>
+    <view class="cards-container">
+      <view class="stat-card" bindtap="goToStats">
+        <text class="stat-label">今日支出</text>
+        <text class="stat-value">¥{{todayExpense}}</text>
+      </view>
+      <view class="stat-card" bindtap="goToStats">
+        <text class="stat-label">最常消费</text>
+        <text class="stat-value">{{topCategory}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 语音录制模态框 -->
+<view class="voice-modal" wx:if="{{showVoiceModal}}">
+  <view class="modal-content">
+    <view class="modal-header">
+      <text>{{voiceStatus.text}}</text>
+    </view>
+    <view class="voice-animation">
+      <view class="wave wave1" wx:if="{{isRecording}}"></view>
+      <view class="wave wave2" wx:if="{{isRecording}}"></view>
+      <view class="wave wave3" wx:if="{{isRecording}}"></view>
+      <image class="mic-icon" src="/images/mic-large.png"></image>
+    </view>
+    <view class="voice-text" wx:if="{{voiceText}}">
+      <text>识别结果：{{voiceText}}</text>
+    </view>
+    <view class="modal-actions">
+      <button class="cancel-btn" bindtap="cancelVoiceRecord">取消</button>
+      <button class="confirm-btn" bindtap="confirmVoiceRecord" wx:if="{{voiceText}}">确认记录</button>
+    </view>
+  </view>
+</view>

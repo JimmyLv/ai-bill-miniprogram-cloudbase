@@ -1,0 +1,75 @@
+<view class="container">
+  <!-- 头部统计 -->
+  <view class="header">
+    <view class="stats-row">
+      <view class="stat-item">
+        <text class="stat-label">本月支出</text>
+        <text class="stat-value">¥{{monthlyTotal}}</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-label">记录条数</text>
+        <text class="stat-value">{{totalCount}}笔</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 筛选器 -->
+  <view class="filter-section">
+    <scroll-view class="filter-tabs" scroll-x="true">
+      <view 
+        class="filter-tab {{activeFilter === item.key ? 'active' : ''}}"
+        wx:for="{{filterOptions}}" 
+        wx:key="key"
+        bindtap="switchFilter"
+        data-filter="{{item.key}}"
+      >
+        {{item.name}}
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 记录列表 -->
+  <view class="records-section">
+    <view class="records-list">
+      <view class="date-group" wx:for="{{groupedRecords}}" wx:key="date">
+        <view class="date-header">
+          <text class="date-text">{{item.dateText}}</text>
+          <text class="date-total">-¥{{item.total}}</text>
+        </view>
+        
+        <view class="record-item" wx:for="{{item.records}}" wx:key="_id" wx:for-item="record">
+          <view class="record-left">
+            <view class="category-icon-wrapper">
+              <image class="category-icon" src="/images/category-{{record.category}}.png"></image>
+            </view>
+            <view class="record-info">
+              <text class="record-desc">{{record.description}}</text>
+              <text class="record-category">{{record.category}}</text>
+            </view>
+          </view>
+          <view class="record-right">
+            <text class="record-amount">-¥{{record.amount}}</text>
+            <text class="record-time">{{record.timeText}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{records.length === 0}}">
+      <image class="empty-icon" src="/images/empty-list.png"></image>
+      <text class="empty-text">暂无记录</text>
+      <text class="empty-hint">快去记录第一笔支出吧～</text>
+      <button class="add-record-btn" bindtap="goToRecord">
+        立即记账
+      </button>
+    </view>
+
+    <!-- 加载更多 -->
+    <view class="load-more" wx:if="{{hasMore && records.length > 0}}">
+      <button class="load-more-btn" bindtap="loadMore" loading="{{loading}}">
+        {{loading ? '加载中...' : '加载更多'}}
+      </button>
+    </view>
+  </view>
+</view> 

@@ -1,0 +1,335 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0 0 100rpx 0;
+}
+
+.header {
+  padding: 60rpx 40rpx 40rpx;
+  color: white;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  margin-right: 30rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.greeting {
+  flex: 1;
+}
+
+.welcome {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.subtitle {
+  display: block;
+  font-size: 28rpx;
+  opacity: 0.8;
+}
+
+.balance-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 24rpx;
+  padding: 40rpx;
+  text-align: center;
+  backdrop-filter: blur(10rpx);
+}
+
+.balance-label {
+  display: block;
+  font-size: 28rpx;
+  opacity: 0.8;
+  margin-bottom: 20rpx;
+}
+
+.balance-amount {
+  display: block;
+  font-size: 56rpx;
+  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.quick-record, .recent-records, .stats-cards {
+  background: white;
+  margin: 0 40rpx 40rpx;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.see-all {
+  font-size: 24rpx;
+  color: #667eea;
+  font-weight: normal;
+}
+
+.quick-buttons {
+  display: flex;
+  gap: 30rpx;
+}
+
+.quick-btn {
+  flex: 1;
+  height: 160rpx;
+  border-radius: 20rpx;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  color: white;
+  font-weight: bold;
+}
+
+.voice-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+}
+
+.manual-btn {
+  background: linear-gradient(135deg, #4834d4, #686de0);
+}
+
+.btn-icon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 16rpx;
+}
+
+.records-list {
+  min-height: 200rpx;
+}
+
+.record-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.record-item:last-child {
+  border-bottom: none;
+}
+
+.record-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.category-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  margin-right: 24rpx;
+  background: #f8f9fa;
+}
+
+.record-info {
+  flex: 1;
+}
+
+.record-desc {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.record-time {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.record-amount {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #ff4757;
+}
+
+.empty-records {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80rpx 0;
+  color: #999;
+}
+
+.empty-icon {
+  width: 120rpx;
+  height: 120rpx;
+  opacity: 0.5;
+  margin-bottom: 20rpx;
+}
+
+.cards-container {
+  display: flex;
+  gap: 30rpx;
+}
+
+.stat-card {
+  flex: 1;
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+}
+
+.stat-value {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.voice-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 32rpx;
+  padding: 60rpx;
+  margin: 0 60rpx;
+  max-width: 600rpx;
+  width: 100%;
+  text-align: center;
+}
+
+.modal-header {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 60rpx;
+  color: #333;
+}
+
+.voice-animation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200rpx;
+  margin-bottom: 40rpx;
+}
+
+.mic-icon {
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 10;
+}
+
+.wave {
+  position: absolute;
+  border: 4rpx solid #667eea;
+  border-radius: 50%;
+  opacity: 0;
+  animation: wave-animation 2s infinite;
+}
+
+.wave1 {
+  width: 120rpx;
+  height: 120rpx;
+  animation-delay: 0s;
+}
+
+.wave2 {
+  width: 180rpx;
+  height: 180rpx;
+  animation-delay: 0.5s;
+}
+
+.wave3 {
+  width: 240rpx;
+  height: 240rpx;
+  animation-delay: 1s;
+}
+
+@keyframes wave-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.voice-text {
+  background: #f8f9fa;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 40rpx;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 30rpx;
+}
+
+.cancel-btn, .confirm-btn {
+  flex: 1;
+  height: 88rpx;
+  border-radius: 44rpx;
+  border: none;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.cancel-btn {
+  background: #f1f2f6;
+  color: #666;
+}
+
+.confirm-btn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}

@@ -1,0 +1,70 @@
+{
+  "version": "2.0",
+  "envId": "cloud1-4g0v6uhy5c7dc674",
+  "projectName": "ai-smart-billing",
+  "framework": {
+    "name": "miniprogram",
+    "plugins": {
+      "@cloudbase/framework-plugin-function": {
+        "inputs": {
+          "functionRootPath": "./cloudfunctions",
+          "functions": [
+            {
+              "name": "getOpenId",
+              "timeout": 5,
+              "envVariables": {},
+              "runtime": "Nodejs18.15",
+              "memorySize": 128
+            },
+            {
+              "name": "parseExpense", 
+              "timeout": 10,
+              "envVariables": {},
+              "runtime": "Nodejs18.15",
+              "memorySize": 256
+            }
+          ]
+        }
+      },
+      "@cloudbase/framework-plugin-database": {
+        "inputs": {
+          "collections": [
+            {
+              "collectionName": "expenses",
+              "description": "AI智能记账数据集合"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "requirement": {
+    "addons": [
+      {
+        "type": "CDB",
+        "name": "database"
+      }
+    ]
+  },
+  "functionRoot": "./cloudfunctions",
+  "functions": [
+    {
+      "name": "getOpenId",
+      "config": {
+        "timeout": 5,
+        "envVariables": {},
+        "runtime": "Nodejs18.15",
+        "memorySize": 128
+      }
+    },
+    {
+      "name": "parseExpense",
+      "config": {
+        "timeout": 10,
+        "envVariables": {},
+        "runtime": "Nodejs18.15", 
+        "memorySize": 256
+      }
+    }
+  ]
+} 

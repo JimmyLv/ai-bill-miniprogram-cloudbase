@@ -1,0 +1,223 @@
+/* 容器 */
+.container {
+  min-height: 100vh;
+  background: #f5f6fa;
+  padding-bottom: 100rpx;
+}
+
+/* 头部统计卡片 */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40rpx;
+}
+
+.summary-cards {
+  display: flex;
+  gap: 30rpx;
+}
+
+.summary-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20rpx;
+  padding: 40rpx 30rpx;
+  text-align: center;
+  color: white;
+  backdrop-filter: blur(10rpx);
+}
+
+.card-label {
+  display: block;
+  font-size: 24rpx;
+  opacity: 0.8;
+  margin-bottom: 16rpx;
+}
+
+.card-value {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.card-change {
+  display: block;
+  font-size: 20rpx;
+  opacity: 0.8;
+}
+
+/* 时间筛选 */
+.time-filter {
+  display: flex;
+  background: white;
+  padding: 30rpx 40rpx;
+  gap: 20rpx;
+}
+
+.time-tab {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx;
+  border-radius: 50rpx;
+  font-size: 26rpx;
+  color: #666;
+  background: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.time-tab.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+/* 通用区块 */
+.category-stats, .trend-section, .records-summary {
+  background: white;
+  margin: 30rpx 40rpx;
+  border-radius: 24rpx;
+  padding: 40rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+/* 类别统计 */
+.category-stat-item {
+  margin-bottom: 40rpx;
+}
+
+.category-stat-item:last-child {
+  margin-bottom: 0;
+}
+
+.category-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.category-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.category-detail {
+  flex: 1;
+}
+
+.category-name {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.category-count {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.category-amount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.amount-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.amount-percent {
+  font-size: 24rpx;
+  color: #667eea;
+  font-weight: 500;
+}
+
+.progress-bar {
+  height: 8rpx;
+  background: #f0f0f0;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 4rpx;
+  transition: width 0.3s ease;
+}
+
+/* 趋势图 */
+.chart-placeholder {
+  text-align: center;
+  padding: 80rpx 40rpx;
+  color: #999;
+}
+
+.chart-placeholder text:first-child {
+  display: block;
+  font-size: 48rpx;
+  margin-bottom: 20rpx;
+}
+
+.chart-desc {
+  font-size: 24rpx;
+}
+
+/* 最大支出记录 */
+.top-record-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.top-record-item:last-child {
+  border-bottom: none;
+}
+
+.record-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.record-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 24rpx;
+}
+
+.record-detail {
+  flex: 1;
+}
+
+.record-desc {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.record-date {
+  display: block;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.record-amount {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #ff4757;
+} 
