@@ -1,0 +1,72 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+**/node_modules
+/.pnp
+.pnp.js
+~/
+
+# testing
+/coverage
+/tmp
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+**/public/sw.js
+**/public/sw.js.map
+**/public/workbox-*.js
+**/public/workbox-*.js.map
+**/public/robots.txt
+**/public/sitemap*.xml
+**/public/fallback*.js
+**/public/version.txt
+**/public/ai.zip
+
+# misc
+.DS_Store
+*.pem
+certificate-base64.txt
+macos-sign.sh
+
+# debug
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files
+.env*.local
+.env
+.idea/
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Sentry
+.sentryclirc
+
+# Sentry
+next.config.original.js
+
+# lockfile
+#pnpm-lock.yaml
+
+# browser extension
+.plasmo/
+keys.json
+key.json
+
+packages/bibigpt-mobile/resources/ios/**/*
+packages/bibigpt-mobile/resources/android/**/*
+
+# contentlayer
+.contentlayer
